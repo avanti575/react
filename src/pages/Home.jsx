@@ -118,6 +118,7 @@ const Home = () => {
         }
         isSearch.current = false;
     }, [categoryId, sort.sortProperty, searchValue, currentPage]);
+
     const pizzas = items
         .filter(obj => {
             if (obj.title.toLowerCase().includes(searchValue.toLowerCase())) {
@@ -127,6 +128,7 @@ const Home = () => {
         })
         .map(obj => <PizzaBlock key={obj.id} {...obj} />);
     const skeletons = [...new Array(6)].map((_, index) => <Skeleton key={index} />);
+
     return (
         <div className="container">
             <div className="content__top">
